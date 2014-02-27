@@ -12,25 +12,37 @@ char tracks[][80] = {
 
 void find_track(char search_for[])
 {
-
+  
   int i;
   for(i=0;i<5;i++)
     {
       if (strstr(tracks[i], search_for))
-        {
-          
-          printf("Track %i:'%s'\n",i,tracks[i]);
-        }
+        printf("Track %i:'%s'\n",i,tracks[i]);  
+     
     }
   
 
+}
+
+void print_reverse(char *s)
+{
+  size_t len = strlen(s);
+  char *t = s + len -1;
+  while(t>=s)
+    {
+      printf("%c",*t);
+        t=t-1;
+    }
+  puts("");
 }
 
 int main()
   {
     char search_for[80];
     printf("Search for : ");
-    fgets(search_for,80,stdin);
+    /*fgets(search_for,80,stdin);*/
+    scanf("%79s", search_for);
     find_track(search_for);
+    print_reverse("Gros coin coin");
     return 0;
   }
